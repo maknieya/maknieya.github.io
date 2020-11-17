@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>les exercices :</title>
+        <meta charset="utf-8">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> 
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <script>
+            $(document).ready(function(){
+               $("#ex1").hide();
+               $("#ex2").hide();
+               $("#ex3").hide();
+               $("#ex4").hide();
+               $("#ex5").hide();
+               $("#ex6").hide();
+               $("#ex7").hide();
+               $("#ex8").hide();
+               $("#ex9").hide();
+               $("#ex10").hide();
+               $("#ex11").hide();
+               $("#ex12").hide();
+               $("#ex13").hide();
+               $("#ex14").hide();
+               $("#ex15").hide();
+               $("#ex16").hide();
+               $("#ex17").hide();
+               $("#ex18").hide();
+               $("#ex19").hide();
+               $("#ex20").hide();
+               $("#ex21").hide();
+               $("#ex22").hide();
+               $("#ex23").hide();
+               $("#ex24").hide();
+               $("#ex25").hide();
+               $("#ex26").hide();
+               $("#ex27").hide();
+               $("#ex28").hide();
+               $("#ex29").hide();
+               $("#ex30").hide();
+               $("#formulaire").hide();
+               $('.ex1').mouseup(function(){
+                $("#ex1").toggle("slow", function(){
+                    if($("#ex1").is(":visible")){
+                    alert("The paragraph  is visible.");
+                } else{
+                    alert("The paragraph  is hidden.");
+                }
+            });
+               });
+               
+               $('.ex2').mouseup(function(){
+                $("#ex2").toggle("slow", function(){
+                   $("<p>!Je suis les éléments de classe ma_classe!</p>").insertAfter('.ma_classe');
+            $("span").insertAfter('#mon_div');
+            $("Un petit texte à insérer dans le DOM juste avant mon_div").insertBefore('#mon_div');
+            $( "#mon_div" ).append( "<p>** Je mets ça en fin de DIV **</p>" );
+            $( "#mon_div" ).prepend( "<p>++ Tiens je rajoute ça en début de div ++</p>" );});
+               });
+
+
+               //
+               
+               $('.ex3').mouseup(function(){
+                $("#ex3").toggle("slow", function(){
+                    $("#afficher_texte").click(function(){
+    alert ("Le texte contenu dans le textarea est " + $("#mon_textarea").val());
+});
+$("#afficher_texte").click(function(){ 
+  alert ("Le texte contenu dans le textarea est " + $("#mon_textarea").val()+" mais je vais lui rajouter une série de XXXXXXXX en fin de texte!"); 
+  $("#mon_textarea").val($("#mon_textarea").val()+'XXXXXXXX')
+});
+            });
+               });
+//
+
+
+               $('.ex4').mouseup(function(){
+                $("#ex4").toggle("slow", function(){
+                    document.getElementById('no_paste').addEventListener('keydown',
+function (foo)
+{
+    if (foo.keyCode == 86) // Code clé du copier/coller
+    {
+      alert("Le collage de texte n'est pas autorisé !");
+      foo.preventDefault();
+    }
+ }); 
+            });
+               });
+               //
+               
+              $('.ex5').mouseup(function(){
+                $("#ex5").toggle("slow", function(){
+                    function supprimer_dernier_caractere(elm) {
+  var val = $(elm).val();
+var cursorPos = elm.selectionStart;
+$(elm).val(
+   val.substr(0,cursorPos-1) + // before cursor - 1
+  val.substr(cursorPos,val.length) // after cursor
+)
+elm.selectionStart = cursorPos-1; // replace the cursor at the right place
+elm.selectionEnd = cursorPos-1;
+}
+  // Supprime le dernier caractère s'il n'est pas alphanumérique sur evt keyup
+  $('#ex5').delegate('input.only_alpha_num','keyup',function(){
+    if(!$(this).val().match(/^[0-9a-z]*$/i)) // a-z et 0-9 uniquement
+      supprimer_dernier_caractere(this);
+  });
+// Annulation du "coller" dans l'input texte auquel on a affecté l'identifiant "no_paste"
+document.getElementById('no_paste').addEventListener('keydown', 
+  function (foo){
+    if (foo.keyCode == 86)
+    {
+       // alert('Vous avez copié du texte');
+foo.preventDefault();
+    }
+ });
+
+    
+            });
+               });
+//
+
+          $('.ex6').mouseup(function(){
+                $("#ex6").toggle("slow", function(){
+                    $("#ex6").hover(
+   function () {
+     $(this).attr('src','image1.jpg');  
+   },
+   function () {
+      $(this).attr('src','image.jpg');  
+   }
+); 
+            });
+               });
+//
+
+               $('.ex7').mouseup(function(){
+                $("#ex7").toggle("slow", function(){
+                    $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+
+    $("#datepicker").datepicker({ showOn: "both",                           
+    
+        buttonImageOnly: true,
+        buttonText:'Cliquer pour choisir une date',
+        onClose: function(dateText, inst) {  }, $options });
+    $("#datepicker").focus();
+       
+ 
+            });
+               });
+//
+
+               $('.ex8').mouseup(function(){
+                $("#ex8").toggle("slow", function(){
+                    $("#monimage").css(  "background:url('image.png') no-repeat top left");
+                    $("#monimage").hover(
+              function(){
+               // La souris passe sur l'élément
+               $("#temp").remove()
+               $(this).append("<div id='temp'></div>"); // Création d'un div temporaire qui va héberger l'image en surimpression
+               bgimg = "url(image1.png)";
+               $(this).find("#temp").css({position:"absolute",background:"transparent "+bgimg+" no-repeat",opacity:0});
+               $(this).find("#temp").stop().animate({opacity:1},500);  }, 
+            function(){
+               // La souris sort de l'élément
+                 $(this).find("#temp").stop().animate({opacity:0},500,function(){$(this).remove()});
+              }
+            )
+            });
+               });
+//
+
+               $('.ex9').mouseup(function(){
+                $("#ex9").toggle("slow", function(){
+                    $('a img').hover(
+   function(){ $(this).animate({ opacity : '.75' }); },
+   function(){ $(this).animate({ opacity : '1' }); }
+  );
+            });
+               });
+//
+               $('.ex10').mouseup(function(){
+                $("#ex10").toggle("slow", function(){
+                    $('#ex10').click(function(event){
+     if(event.target.id == 'ex10') {
+       alert ("j'ai cliqué sur mon élément");
+     } else {
+       alert ("j'ai cliqué à l'extérieur de mon élément");
+     }
+ });
+            });
+               });
+//
+               $('.ex11').mouseup(function(){
+                $("#ex11").toggle("slow", function(){
+                    var today= new Date();
+              var ladate=Date.parse(today);
+              var lannee=today.getFullYear();
+              var dateprintemps=Date.parse(new Date(lannee, 2, 21));
+              var dateete=Date.parse(new Date(lannee, 5, 21));
+              var dateautomne=Date.parse(new Date(lannee, 8, 21));
+              var datehiver=Date.parse(new Date(lannee, 11, 21));
+              if(ladate>=dateprintemps && ladate<dateete){
+                $("#ex11").css({backgroundImage: "url('Fond-Printemps.jpg')"}); }
+              else if(ladate>=dateete && ladate<dateautomne){
+                $("#ex11").css({backgroundImage: "url('Fond-Ete.jpg')"});  }
+              else if(ladate>=dateautomne && ladate<datehiver){
+                $("#ex11").css({backgroundImage: "url('Fond-Automne.jpg')"});  }
+              else if(ladate>=datehiver || ladate<dateprintemps){
+                $("#ex11").css({backgroundImage: "url('Fond-Hiver.jpg')"});  }
+            });
+               });
+//
+               $('.ex12').mouseup(function(){
+                $("#ex12").toggle("slow", function(){
+                    $('.maclassegenerale').not(".maclasseaexclure").css({"background":"url(image.jpg)  no-repeat 5px 5px"});
+            });
+               });
+//
+               $('.ex13').mouseup(function(){
+                $("#ex13").toggle("slow", function(){
+                    var nb_element_de_class;
+                  nb_element_de_class=$(".ma_classe1").length;
+                  alert("le nombre d’éléments étant affectés d’une classe définie 'ma_classe1': "+ nb_element_de_class);
+            });
+               });
+//
+               $('.ex14').mouseup(function(){
+                $("#ex14").toggle("slow", function(){
+                    var mavaleur=300;
+                mavaleur =parseInt($("#monDiv1").css('height')) - parseInt($("#monDiv2").css('marginTop'))
+            });
+               });
+//
+              /* $('.ex15').mouseup(function(){
+                $("#ex15").toggle("slow", function(){
+                $("#15").attr('readonly','readonly');
+                $("#15").prop("disabled", true); 
+                $("#15").attr("disabled", "disabled");
+            });
+               });  */ 
+//
+               $('.ex16').mouseup(function(){
+                $("#ex16").toggle("slow", function(){
+                    $("#calendar").fullCalendar
+            });
+               });
+//
+               $('.ex17').mouseup(function(){
+                $("#ex17").toggle("slow", function(){
+                    $('#redirection').click(function() {
+     $('#ex17').animate({scrollTop: $("#monancre").offset().top},'slow');
+   });  
+            });
+               });
+//
+               $('.ex18').mouseup(function(){
+                $("#ex18").toggle("slow", function(){
+                    $("#ex18").append("<p>Le ciel est bleu.");
+            });
+               });
+//
+               $('.ex19').mouseup(function(){
+                $("#ex19").toggle("slow", function(){
+                    if($("#ex19").is(":visible")){
+                    alert("The paragraph  is visible.");
+                } else{
+                    alert("The paragraph  is hidden.");
+                }
+            });
+               });
+//
+               $('.ex20').mouseup(function(){
+                $("#ex20").toggle("slow", function(){
+                    $('#ex20').keyup(function(e) {    
+   if(e.keyCode == 13) { // KeyCode de la touche entrée
+          alert('Hey ! Tu as appuyé sur la touche entrée !!'); 
+ }
+}); 
+            });
+               });
+//
+               $('.ex21').mouseup(function(){
+                $("#ex21").toggle("slow", function(){
+                    $("#ex21").append("<p>Le ciel est bleu.");
+            });
+               });
+//
+               $('.ex22').mouseup(function(){
+                $("#ex22").toggle("slow", function(){
+                    var new_element = jQuery('<div id="new_elt">?</div>');
+// On ajoute du style avec la fonction .css()
+new_element.css({
+    background: 'gray',
+    width     : '50px',
+    height    : '30px',
+    padding   : '3px'
+});
+$('#ex22').append(new_element);
+$("#new_elt").click (function () { alert ('cette alerte ne sera jamais déclenchée...'); });
+
+            });
+               });
+//
+               $('.ex23').mouseup(function(){
+                $("#ex23").toggle("slow", function(){
+                    $("#ex23").click (
+     function (){
+       alert ('click pere!');
+        $(this).children('div:first').click();
+     }
+   );
+   $(".div_fils").click (
+ function (event){
+   alert ('click fils!');
+  //mettre ici l'évenement sur le fils
+  event.stopPropagation(); 
+  //l'événement click n'est plus transmis au père 
+ }
+);
+            });
+               });
+//
+              $('.ex24').mouseup(function(){
+                $("#ex24").toggle("slow", function(){
+                    $("#mondiv").siblings('#ex24').each(function(i){
+             alert (i +' : '+$(this).html());
+});
+$("#mondiv").parent().children('#ex24').each(function(i){
+ alert (i +' : '+$(this).html());
+});
+            });
+               });
+//
+               $('.ex25').mouseup(function(){
+                $("#ex25").toggle("slow", function(){
+                    $(".p2").hide();
+                $(".p1").mouseup(function(){
+                    $(".p2").show();
+                })
+            });
+        });
+//
+               $('.ex26').mouseup(function(){
+                $("#ex26").toggle("slow", function(){
+                    $("#maclasse").each(function(){ 
+                   $(this).css({"background":""});
+                                });
+            });
+               });
+//
+               $('.ex27').mouseup(function(){
+                $("#ex27").toggle("slow", function(){
+                    alert ($('#checkBox').attr('checked'));
+                $("input[type='checkbox']:checked").each(
+                              function(){ console.log($(this).attr('id'));
+          }); 
+          $("form input:radio[2]").attr("checked","checked");
+          alert($('input[type=radio][name=mongroupe]:checked').attr('value')); 
+          $('#element OPTION[value="Marseille"]').attr("selected", "selected");
+            });
+               });
+//
+               $('.ex28').mouseup(function(){
+                $("#ex28").toggle("slow", function(){
+                    $(function(){
+                 $("#b28").click(function(){
+               
+               $("#monDiv28").fadeOut('slow').queue(function() {
+                $(".28").animate({left:'600px'},3000);
+     $("#monDeuxiemeDiv").fadeIn('slow');
+     $(this).dequeue();
+}); });
+        });
+            });
+               });
+//
+               $('.ex29').mouseup(function(){
+                $("#ex29").toggle("slow", function(){
+                if($("#ex29").is(":visible")){
+                    alert("The paragraph  is visible.");
+                } else{
+                    alert("The paragraph  is hidden.");
+                }
+
+            
+            });
+               });
+//
+               $('.ex30').mouseup(function(){
+                $("#ex30").toggle("slow", function(){
+                    function FaireClignoterImage (){ $("#image-neon").fadeOut(200).delay(300).fadeIn(200); } 
+    setInterval(FaireClignoterImage,700); 
+            });
+               });
+//
+               $('.formulaire').mouseup(function(){
+                $("#formulaire").toggle("slow", function(){
+                    $(document).ready(function(){
+   
+   $("#formulaire").submit(function(){
+       if($('#cin').length<8 || $('#cin').length>8){
+       alert("error numero de cin doit être composé de 8 chiffres");
+   }
+   else{
+       alert("Formulaire bien envoyé");
+   }
+
+   });
+
+
+   $("form input:radio[1]").attr("checked","checked");
+   $("input").focus(function(){
+       $(this).css("background-color", "lightBlue");
+   });
+
+   $("input").blur(function(){
+       $(this).css("background-color", "white");
+   });
+   $("#formulaire").css( "background-color","pink");
+   $(".position").css( "display:inline-block","width: 150px","text-align: right");
+
+
+   $('.verif-email').focusout(function(){
+       var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+       var emailblockReg = /^([\w-\.]+@(?!hotmail.fr)(?!hotmail.com)([\w-]+\.)+[\w-]{2,4})?$/;
+       var emailaddressVal = $(this).val();
+        
+       if(emailaddressVal == '') {
+           $('.error').text('Le champs est vide.');
+       } else if(!emailReg.test(emailaddressVal)) {
+           $('.error').text('Ce n\'est pas une adresse email');
+       } else if(!emailblockReg.test(emailaddressVal)) {
+           $('.error').text('N\'utilisez pas votre adresse hotmail ! GRRR');
+       } else {
+           $('.error').text('');
+       }
+   });
+  
+
+            });
+               }); });
+
+
+            });
+        </script>
+    </head>
+    <body>
+        <button class="ex1"> Exercice1 : </button> <br>
+         <p id="ex1">
+                SAVOIR SI UN ÉLÉMENT EST VISIBLE OU HIDDEN
+            </p><br>
+        <button class="ex2">Execice 2 :</button><br>
+        <div id="ex2">
+            <span class='ma_classe'>-- Mon premier span ma_classe --</span>
+        <span class='ma_classe'>-- Mon deuxième span ma_classe --</span>
+  <div id="mon_div" style="border:1px solid gray"> Ce DIV est initialement dans le DOM en fin de fichier </div>
+        </div><br>
+    
+    <button class="ex3"> Exercice3 : </button> <br>
+            <form id="ex3">
+                <textarea id="mon_textarea"> Mon texte ici </textarea>
+                <input type="button" value="Afficher le texte" id="afficher_texte"/>
+                </form><br>
+    
+   <button class="ex4"> Exercice4 : </button> <br>
+         <form id="ex4"> <input type="texte" id="no_paste" /></form>
+            <br>
+    
+
+<button class="ex5"> Exercice5 : </button> <br>
+            <form id="ex5">
+                <input type='text' name='cache-texte' class='only_alpha_num' id="no_paste"/>
+              </form>
+            <br>
+            
+<button class="ex6"> Exercice6 : </button> <br>
+                <img id="ex6" src="image.jpg" alt="survolez cette image "/>
+            <br>
+
+<button class="ex7"> Exercice7 : </button> <br>
+         <p id="ex7">
+            Date: <input type="datepicker" id="datepicker" value="12/04/2002">
+            </p><br>
+
+<button class="ex8"> Exercice8 : </button> <br>
+         <p id="ex8">
+            <img id="monimage" src="image.jpg" alt="survolez cette image "/>
+            <img id="temp" src="image1.jpg" alt="survolez cette image "/>
+            </p><br>
+
+<button class="ex9"> Exercice9 : </button> <br>
+            <a id="ex9" href="#">
+                <img src="image1.jpg" alt ="effet sur survol de l'image"/>
+              </a>
+            <br>
+
+<button class="ex10"> Exercice10 : </button> <br>
+<p id="ex10">t I have some things to say don't take it on the way !!</p><br>
+
+<button class="ex11"> Exercice11 : </button> <br>
+            <p id="ex11">Les conditions de vie des soldats au front sont très éprouvantes. En 1914, cette première année de guerre fut particulièrement très violente, causant 2000 morts par jours dans l'armée française, qui donna naissance aux tranchées afin de protéger les soldats. La grande inquiétude des soldat étaient de recevoir des obus et des gaz asphyxiants, comme l'écrit un soldat français dans une lettre a sa famille : "Comme distraction, on reçoit des obus qu'on en veut et puis les Boches, pour varier les plaisirs nous envoient des gaz asphyxiants." Le pire pour les soldats est le quotidien que le combat en lui-même. Les tranches sont remplies de boue et d'eau, comme le dit le soldat français dans sa lettre : "Il n'y a plus que de l'eau et de la boue." Les tranchées sont infectées par les rats et les cadavres., leur absence d'hygiène est montrée avec le plein de poux sur leurs uniformes ou le surnom des soldats français "Les Poilus", dû au fait du mal rasage. Au printemps 1917, certains soldats français créent des mutineries dans le fait d'espionner leur mécontentement sur leur quotidien et leurs sacrifices jugés inutiles. Les mutineries furent immédiatement réprimées par le gouvernement de Georges Clémenceau emmené par le maréchal Pétain, qui condamna à mort les soldats et qui améliorera au passage les conditions de vie des soldats en leur faisant avoir plus de permissions et de nourriture.</p>
+            <br>
+
+<button class="ex12"> Exercice12 : </button> <br>
+             <div id="ex12">
+                <div class="maclassegenerale "> mon 1</div>
+                <div class="maclassegenerale maclasseaexclure"> mon 2</div>
+                <div class="maclassegenerale"> mon 3</div>
+                <div class="maclassegenerale maclasseaexclure"> mon 4</div>
+             </div>
+            <br>
+
+<button class="ex13"> Exercice13 : </button> <br>
+         <div id="ex13">
+            <div class="ma_classe1 "> mon 1</div>
+            <div class="ma_classe1"> mon 2</div>
+            <div class="maclassegenerale1"> mon 3</div>
+            <div class="ma_classe1"> mon 4</div>
+         </div><br>
+
+<button class="ex14"> Exercice14 : </button> <br>
+         <div id="ex14">
+            <div id="monDiv1" style="height: 500px;">test1</div>
+            <div id="monDiv2" style="margin-top: 200px;">test2</div>
+         </div><br>
+
+<button class="ex15"> Exercice15 : </button> <br>
+            <div id="ex15">
+                <textarea id="15"></textarea>
+            </div>
+            <br>
+
+<button class="ex16"> Exercice16 : </button> <br>
+         <p id="ex16">
+            <input type="datepicker" id="Calendar" value="12/04/2002"></p>
+            </p><br>
+
+<button class="ex17"> Exercice17 : </button> <br>
+         <div id="ex17">
+            <div id="redirection">Cliquez moi pour déplacer la page vers l'élément d'identifiant #monancre </div>
+            <div id="monancre"> Mon ancre</div>
+         </div><br>
+
+<button class="ex18"> Exercice18 : </button> <br>
+         
+            <div id="ex18">
+                <p>Paragraphe ciblé</p>
+            </div>
+        <br>
+
+<button class="ex19"> Exercice19 : </button> <br>
+         <p id="ex19">
+                SAVOIR SI UN ÉLÉMENT EST VISIBLE OU HIDDEN
+            </p><br>
+
+<button class="ex20"> Exercice20 : </button> <br>
+            <input type="text" id="ex20">
+            <br>
+
+<button class="ex21"> Exercice21 : </button> <br>
+         <p id="ex21">
+            Paragraphe ciblé
+            </p><br>
+
+<button class="ex22"> Exercice22 : </button> <br>
+         <p id="ex22">
+            </p><br>
+
+<button class="ex23"> Exercice23 : </button> <br>
+         <div id="ex23">
+             Pere
+                <div class="div_fils">Fils1</div>
+                <div class="div_fils">Fils2</div>
+                <div class="div_fils">Fils3</div>
+              </div>
+            <br>
+
+<button class="ex24"> Exercice24 : </button> <br>
+         <div id="ex24">
+                <div> A </div>
+                <div> B </div>
+                <div id="mondiv"> C </div>
+                <div> D </div>
+              </div><br>
+
+<button class="ex25"> Exercice25 : </button> <br>
+         <div id="ex25">
+            <p class="p1">premier paragrahe</p>
+            <p class="p2">deuxieme paragrahe<p>
+            </div><br>
+
+<button class="ex26"> Exercice26 : </button> <br>
+         <div id="ex26">
+            <p>Hi!!!!!</p>
+            <p id="maclasse" style="background-image: url('image1.jpg') ;"> how are you!!!</p>
+         </div><br>
+
+<button class="ex27"> Exercice27 : </button> <br>
+        
+            <form id="ex27">
+                <input id="checkbox"  type="checkbox" name="one" value="1">1<br>
+                <input id="checkbox2" type="checkbox" name="two" value="2">2<br>
+                <input id="checkbox3" type="checkbox" name="thr" value="3">3<br>
+               <input id="radio"  type="radio"  name="mongroupe" value="1" checked="">1<br>
+                <input id="radio"  type="radio"  name="mongroupe" value="2"checked="">2<br>
+                <input id="radio"  type="radio"  name="mongroupe"value="3"checked="">3<br>
+                <SELECT id="element ">
+                    <OPTION VALUE="Paris" selected="">Paris</OPTION>
+                    <OPTION VALUE="Grenoble" selected="">Grenoble</OPTION>
+                    <OPTION VALUE="Marseille" selected="">Marseille</OPTION>
+                  </SELECT>
+                  <input type="submit" value="envoyer">
+            </form>
+            <br>
+
+<button class="ex28"> Exercice28 : </button> <br>
+         <div id="ex28">
+            <button id="b28">lancer une animation </button> 
+        
+            <div class="28" id="monDiv28" style="width:100px ;height: 100px;background: red;position: absolute;top: 1100px;left: 50px;"></div><br>
+            <div class="28" id="monDeuxiemeDiv" style="width:100px ;height: 100px;background: blue;position: absolute;top: 1250px;left: 50px;"></div>
+         <br>         <br>         <br>         <br>         <br><br><br><br><br><br><br><br><br><br>         <br>
+
+         </div><br>
+
+<button class="ex29"> Exercice29 : </button> <br>
+         <p id="ex29">
+            <button type="button"> Execice 29:</button>
+            <p  style="display: none;">
+                SAVOIR SI UN ÉLÉMENT EST VISIBLE OU HIDDEN
+            </p><br>
+            </p><br>
+
+<button class="ex30"> Exercice30 : </button> <br>
+         <p id="ex30">
+            <img id="image-neon" src="image1.jpg"/>
+            </p><br>
+
+<button class="formulaire"> Formulaire: </button> <br>
+        
+            <form id="formulaire"  method="post"  action="">
+                <h1><center><u>INSCRIPTION</u></center></h1>
+                <label class="position">Nom et prénom *:</label>
+                <input type="text" name="np" >
+                <br/><br/>
+                <label  class="position">CIN *:</label>
+                <input type="text" name="cin" id="cin" >
+                <br/><br/>
+                <label  class="position">Adresse e-mail *:</label>
+                <input class="verif-email" type="email" name="mail">
+                <div class="error"></div>
+                <br/><br/>
+                <label class="position" >Niveau :</label>
+                <br/>
+                <center>
+                    <input type="radio" id="radio" value="Secondaire" name="Niveau" checked="checked" /> Secondaire
+                <input type="radio"  id="radio" value="Universitaire" name="Niveau" > Universitaire
+                <input type="radio"  id="radio" value="Autre" name="Niveau" > Autre
+                </center>
+                
+                <br/>
+                <label>Modules de formation :</label>
+                <br/>
+                <center>
+                    <select name="modules"multiple size="3">
+                            <option>Bureautique</option>
+                        <option>SE et Réseaux info</option>
+                        <option>TIC</option>
+                        
+                </select>
+                </center>
+                
+                <br/><br/>
+                <p align="right">(*)Champs obligatoires</p>
+                <center>
+                    <input type="submit" value="Envoyer" />
+                <input type="reset" value="Annuler" />
+                </center>
+            </form>
+            <br>
+    </body>
+
+</html>
