@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ex1_S5</title>
+	<link rel="stylesheet" type="text/css" href="Ex1_S5.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+
+	
+</head>
+
+<body>
+<h1><B>Contact</B></h1>
+<p>Be called back for more information</p>
+<form autocomplete="on" action="test.html"  method="post">
+<div id="block">
+<label for="fisrtname">First name (*)</label>
+<input type="text" placeholder="fisrtname" required
+oninput="sessionStorage.setItem('username', this.value);" name=" fisrtname"><br><br>
+<label for="lastname">Last name (*)</label>
+<input type="text" name="lastname" id="lasttname" required><br><br>
+<label for="choice">You want to be contacted by</label>
+<select name="choice" id="choice">
+	<option value="Phone" selected> Phone</option>
+	<option value="Email">Email</option>
+	<option value="Meet">Meet</option>
+</select><br><br><br>
+<label for="Phone">Phone number</label>
+<input type="text" name="Phone" id="Phone" pattern="[0-9]{8}"><small> (composé de 8 chiffres)</small><br><br>
+<label for="When">When (*)</label>
+<input type="date" name="When" id="When" min="2000-01-01" required><br><br>
+
+<label for="time1" >Between (*)</label> 
+<input type="time" name="time1" id="time1" value="07:00" required>
+<small id="and"> And </small>
+<input type="time" name="time2" id="time2" value="07:00" >
+<br><br>
+
+<button id="cancel" type="cancel">Cancel</button>
+<input id="submit" type="submit" name="submit" value="submit" onsubmit="compter">
+</div>
+<p id="counter"> vous avez visiter ce site : <div oninvalid="localStorage.getItem('visiteur')"></div></p>
+
+</div>
+<button id = "find-me">localisation</button><br/>
+<p id = "status"></p>
+<a id = "map-link" target="_blank"></a>
+</form>
+</body>
+<script>
+
+var n = localStorage.getItem('visiteur');
+
+if (n === null) {
+  n = 0;
+}
+n++;
+
+localStorage.setItem("visiteur", n);
+document.getElementById('counter').innerHTML=`bonjour , vous avez visité cette page ${n} fois.`;
+alert("vous avez visiter ce site "+n+" fois");
+
+
+function geoFindMe() {
+
+const status = document.querySelector('#status');
+const mapLink = document.querySelector('#map-link');
+
+mapLink.href = '';
+mapLink.textContent = '';
+
+function success(position) {
+  const latitude  = position.coords.latitude;
+  const longitude = position.coords.longitude;
+
+  status.textContent = '';
+  mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
+  mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+}
+
+function error() {
+  status.textContent = 'Unable to retrieve your location';
+}
+
+if (!navigator.geolocation) {
+  status.textContent = 'Geolocation is not supported by your browser';
+} else {
+  status.textContent = 'Locating…';
+  navigator.geolocation.getCurrentPosition(success, error);
+}
+}
+document.querySelector('#find-me').addEventListener('click', geoFindMe);
+
+
+</script>
+
+</html> 

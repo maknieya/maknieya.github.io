@@ -1,0 +1,22 @@
+div{
+	margin-left: 40px;
+}
+#choice{
+	width: 178px;
+}
+label{
+	display: block;
+	width: 150px;
+	float: left;
+}
+#and{
+	margin-left: 10px;
+}
+#submit{
+	margin-left: 200px; 
+	background-color: blue;
+}
+#google_canvas{
+               width: 400px;
+               height: 400px;
+           }

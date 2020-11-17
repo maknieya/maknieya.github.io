@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Formulaire</title>
+        <meta charset="utf-8">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        
+    </head>
+    <body>
+        <script>
+ $(document).ready(function(){ 
+    if(typeof(Storage) !=="undefined") {
+        if('username' in sessionStorage) {
+        var nameStorage=sessionStorage.getItem('username');
+        alert("bonjour "+ nameStorage);
+
+    } else {
+        alert("Désolé,mais le Web Storage n'est pas supporté");
+    } 
+    }  
+   
+   
+});
+        </script>
+    </body>
+
