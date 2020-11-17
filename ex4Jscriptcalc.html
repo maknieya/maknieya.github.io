@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>calcul</title>
+
+<body>
+<form name="f">
+<input type="text" name="zone1">
+<input type="button" value=" = " onclick="resultat()">
+<input type="text" name="zone2"><br>
+<a href="#" onclick="resultat()">voir</a>
+<input type="button"  value="0" onclick="javascript:putt(0);" />
+<input type="button"  value="1" onclick="javascript:putt(1);" />
+<input type="button"  value="2" onclick="javascript:putt(2);" />
+<input type="button"  value="3" onclick="javascript:putt(3);" />
+<input type="button"  value="4" onclick="javascript:putt(4);" />
+<input type="button"  value="5" onclick="javascript:putt(5);" />
+<input type="button"  value="6" onclick="javascript:putt(6);" />
+<input type="button"  value="7" onclick="javascript:putt(7);" />
+<input type="button"  value="8" onclick="javascript:putt(8);" />
+<input type="button"  value="9" onclick="javascript:putt(9);" />
+<input type="button"  value="+" onclick="javascript:opr('+');" />
+<input type="button"  value="-" onclick="javascript:opr('-');" />
+<input type="button"  value="*" onclick="javascript:opr('*');" />
+<input type="button"  value="/" onclick="javascript:opr('/');" />
+
+</form>
+<script language ="JavaScript">
+function resultat()
+{ var a=document.f.zone1.value;
+ var b=eval(a);
+ document.f.zone2.value=b; }
+
+ function putt(a) {
+ 	document.f.zone1.value+=a;
+ }
+ function opr(a) {
+ 	document.f.zone1.value+=a;
+ }
+</script>
+</body>
+</html>

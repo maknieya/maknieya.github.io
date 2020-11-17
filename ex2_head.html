@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Ex_1</title>
+	</form>
+	<script type="text/javascript">
+	function moyenne(){
+		var DC1=Number( document.eya.DC1.value);
+		var DC2=Number( document.eya.DC2.value);
+		var DS=Number( document.eya.DS.value);
+		var coef1=Number( document.eya.coef1.value);
+		var coef2=Number( document.eya.coef2.value);
+		var coef3=Number( document.eya.coef3.value);
+
+		var moy=(DC1*coef1 + DC2*coef2 + coef3*DS) / (coef3+coef2+coef1) ;
+		document.write("la moyenne est "+ moy);
+	}
+	</script>
+</head>
+<body>
+	<form name="eya">
+	<label class="form_col" for="DC1">donner la valeur de DC1</label>
+	<input type="text" name="DC1"><br>
+	<label class="form_col" for="coef1">donner la valeur du coefficient 1</label>
+	<input type="text" name="coef1"><br>
+	<label class="form_col" for="DC2">donner la valeur de DC2</label>
+	<input type="text" name="DC2"><br>
+	<label class="form_col" for="coef2">donner la valeur du coefficient 2</label>
+	<input type="text" name="coef2"><br>
+	<label class="form_col" for="DS">donner la valeur de DS</label>
+	<input type="text" name="DS"><br>
+	<label class="form_col" for="coef3">donner la valeur du coefficient 3</label>
+	<input type="text" name="coef3"><br>
+	<input type="button" value="calculer" onclick="moyenne()">
+
+</body>
+</html>
