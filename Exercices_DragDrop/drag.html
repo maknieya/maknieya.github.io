@@ -1,0 +1,18 @@
+<!doctype html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> 
+</head>
+<body>
+    <img id="image1" src="./Images/madelaine.png"  draggable="true"  width="275" height="183">
+    
+    <script>
+        var image =    document.getElementById('image1')
+        image.addEventListener('dragstart',fonction_dragstart,false);
+        
+        function fonction_dragstart(ev){
+            var id = ev.target.id;
+            ev.dataTransfer.setData("Text",ev.target.id);
+        }              
+    </script>
+</body>

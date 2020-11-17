@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> 
+<title>Exercice Drag & Drop</title>
+</head>
+<style>
+#maBoite{
+    width: 350px;
+    height: 250px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+</style>
+<body>
+    <div id="maBoite" style="background-image: url(./Images/tassecafe.jpg); background-size: 370px 270px;" > Ce conteneur acceptera l'élément déplacé.</div>
+    <br>
+<img id="image1" src="./Images/madelaine.png"  draggable="true"  width="275" height="183" draggable="true" />
+<script>
+    var image =document.getElementById('image1')
+        image.addEventListener('dragstart',fonction_dragstart,false);
+     
+    function fonction_dragstart(ev){
+        var id = ev.target.id;
+ev.dataTransfer.setData("text",ev.target.id);
+}
+
+var cible = document.getElementById('maBoite')
+    cible.addEventListener('dragover',fonction_dragover,false);
+    cible.addEventListener('drop',fonction_drop,false);
+function fonction_dragover(monEvenement) {
+monEvenement.preventDefault();
+}
+function fonction_drop(ev){
+        ev.preventDefault();
+        var data=ev.dataTransfer.getData("Text");
+        ev.target.appendChild(document.getElementById(data));
+    }  
+</script>	
+</body>
+</html>
